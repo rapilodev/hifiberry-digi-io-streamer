@@ -1,0 +1,8 @@
+/var/log/streamer/*.log {
+    daily
+    missingok
+    rotate 32
+    compress
+    copytruncate
+}
+
