@@ -6,6 +6,8 @@ The HiFiBerry Digi IO Streamer project facilitates audio streaming by capturing
 TOSLINK audio from a HiFiBerry Digi IO sound card using ALSA. This audio is
 then processed through Liquidsoap and broadcasted via Icecast.
 
+![HifiBery IO Toslink Streamer](doc/hifiberry-io.jpg)
+
 ## Components
 
 - **ALSA Configuration**: Sets up hardware parameters and creates a virtual
