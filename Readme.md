@@ -8,6 +8,15 @@ then processed through Liquidsoap and broadcasted via Icecast.
 
 ![HifiBery IO Toslink Streamer](doc/hifiberry-io.jpg)
 
+## DAC DSP vs. Digi IO Streamer
+
+Consider opting for the HiFiBerry DAC DSP instead of the HiFiBerry Digi IO
+Streamer for your project. The DAC DSP board is better suited when you need to
+handle continuous audio signals with customizable settings.  Unlike the Digi IO
+Streamer, which requires a steady signal with fixed configurations, the DAC DSP
+offers greater flexibility and control over audio processing parameters, making
+it more suitable for tailored audio applications.
+
 ## Components
 
 - **ALSA Configuration**: Sets up hardware parameters and creates a virtual
