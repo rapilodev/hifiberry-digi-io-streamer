@@ -1,0 +1,29 @@
+[Unit]
+Description=streamer
+After=network.target
+
+[Service]
+Restart=always
+RestartSec=1s
+StartLimitInterval=0
+
+User=streamer
+Group=streamer
+
+PermissionsStartOnly=true
+ExecStartPre=-/bin/bash -c 'pkill -f /etc/streamer/streamer.liq'
+ExecStartPre=-/bin/bash -c 'mkdir -p /var/run/streamer/'
+ExecStartPre=-/bin/bash -c 'chmod 775 /var/run/streamer/'
+ExecStartPre=-/bin/bash -c 'chown audiostream /var/run/streamer/'
+ExecStartPre=-/bin/bash -c 'rm /var/run/streamer/streamer.pid'
+ExecStartPre=-/bin/bash -c 'mkdir -p /var/log/streamer/'
+ExecStartPre=-/bin/bash -c 'chmod 755 /var/log/streamer/'
+ExecStartPre=-/bin/bash -c 'chown audiostream:www-data /var/log/streamer/'
+ExecStartPre=-/bin/bash -c 'chmod 664 /var/log/streamer/streamer.log'
+ExecStartPre=-/bin/bash -c 'chown audiostream:www-data /var/log/stream-services/streamer.log'
+ExecStart=/bin/sh -c 'env liquidsoap /etc/streamer/streamer.liq >>/var/log/streamer/streamer.log 2>&1'
+ExecReload=/bin/kill -HUP $(cat /var/run/streamer/streamer.pid) >>/var/log/streamer/streamer.log 2>&1
+
+[Install]
+WantedBy=multi-user.target
+
